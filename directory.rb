@@ -1,27 +1,15 @@
-
-
-
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
   # get the first name
-  name = gets.strip
-puts "enter cohort - default is november"
-  cohortinput = gets.chomp
-  if cohortinput == ""
-    cohort = "november"
-  else cohort = cohortinput
-  end
+  name = gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
-    students << {name: name, cohort: cohort}
-    if students.count > 1 
+    students << {name: name, cohort: :november}
     puts "Now we have #{students.count} students"
-    else "Now we have #{students.count} student"
-    end
     # get another name from the user
     name = gets.chomp
   end

@@ -25,7 +25,7 @@ end
 
 def print(students)
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort) (Favourite hobby: #{student[:hobby]})"
+    puts "#{student[:name]} (#{student[:cohort]} cohort) (Favourite hobby: #{student[:hobby]}"
   end
 end
 
@@ -36,5 +36,5 @@ end
 students = input_students
 #nothing happens until we call the methods
 print_header
-print(students)
+print(students).center(20, " ")
 print_footer(students)

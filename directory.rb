@@ -4,12 +4,17 @@ def input_students
   # create an empty array
   students = []
   # get the first name
-  name = gets.chomp 
-  hobby = gets.chomp
+  name = gets.chomp
+  puts "enter cohort - default is november"
+  cohortinput = gets.chomp
+  if cohortinput == ""
+    cohort = "november"
+  else cohort = cohortinput
+  end
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
-    students << {name: name, cohort: :november, hobby: hobby}
+    students << {name: name, cohort: cohort}
     puts "Now we have #{students.count} students"
     # get another name from the user
     name = gets.chomp
@@ -25,7 +30,7 @@ end
 
 def print(students)
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort) (Favourite hobby: #{student[:hobby]}"
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
@@ -36,5 +41,5 @@ end
 students = input_students
 #nothing happens until we call the methods
 print_header
-print(students).center(20, " ")
+print(students)
 print_footer(students)

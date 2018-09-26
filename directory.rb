@@ -23,10 +23,10 @@ def print_header
 end
 
 def print(students)
-  if students.empty? == false
+  index = 0
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
-  end
+   index += 1 
+    puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 

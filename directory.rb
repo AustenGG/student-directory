@@ -1,11 +1,14 @@
+
+
+
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
   # get the first name
-  name = gets.chomp
-  puts "enter cohort - default is november"
+  name = gets.strip
+puts "enter cohort - default is november"
   cohortinput = gets.chomp
   if cohortinput == ""
     cohort = "november"

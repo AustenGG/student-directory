@@ -23,10 +23,10 @@ def print_header
 end
 
 def print(students)
-  students.each do |student|
-    if student[:name].length < 12
-    puts "1. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
+  max = students.length - 1
+  i = students.map.with_index
+  puts students
+  until [i] == max
   end
 end
 

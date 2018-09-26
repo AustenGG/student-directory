@@ -24,7 +24,9 @@ end
 
 def print(students)
   students.each do |student|
+    if student[:name].start_with?('a') == true
     puts "1. #{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 

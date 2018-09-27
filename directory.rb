@@ -1,8 +1,4 @@
-
-
-
 @students = [] # an empty array accessible to all methods
-  file = File.open("students.csv", "w")
 
 def print_menu
   puts "1. Input the students"
@@ -22,24 +18,24 @@ end
 def process(selection)
   case selection
   when "1"
+    puts "You have selected - input students"
     input_students
   when "2"
+    puts "You have selected - show the students"
     show_students
   when "9"
     exit # this will cause the program to terminate
   when "3"
+    puts "You have selected - save the list to students.csv"
     save_students
   when "4"
+    puts "You have selected - load the list from students.csv"
     load_students
   else
     puts "I don't know what you meant, try again"
   end
-end
 
-def shovel 
-      @students << {name: name, cohort: cohort.to_sym}
 end
-
 
 def input_students
   puts "Please enter the names of the students"
@@ -49,7 +45,7 @@ def input_students
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
-    shovel
+    @students << {name: name, cohort: :november}
     puts "Now we have #{@students.count} students"
     # get another name from the user
     name = STDIN.gets.chomp
@@ -93,7 +89,7 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each do |line|
   name, cohort = line.chomp.split(',')
-  shovel
+    @students << {name: name, cohort: cohort.to_sym}
   end
   file.close
 end
@@ -110,5 +106,5 @@ def try_load_students
   end
 end
 
-load_students
+try_load_students
 interactive_menu

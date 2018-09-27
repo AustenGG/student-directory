@@ -37,7 +37,7 @@ def process(selection)
      puts "Enter the filename"
      enterfilename = gets.chomp
      if enterfilename == "students.csv"
-     load_students
+     CSV.read("projects/student-directory/students.csv")
      end
   else
     puts "I don't know what you meant, try again"
@@ -93,20 +93,12 @@ def save_students
   file.close
 end
 
-def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-  name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort.to_sym}
-  end
-  file.close
-end
 
 def try_load_students
   filename = ARGV.first# first argument from the command line
   return if filename.nil? # get out of the method if it isn't given
   if File.exists?(filename) # if it exists
-    load_students(filename)
+  CSV.read("projects/student-directory/students.csv")
      puts "Loaded #{@students.count} from #{filename}"
   else # if it doesn't exist
     puts "Sorry, #{filename} doesn't exist."
@@ -116,3 +108,4 @@ end
 
 try_load_students
 interactive_menu
+

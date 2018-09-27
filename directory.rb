@@ -27,10 +27,18 @@ def process(selection)
     exit # this will cause the program to terminate
   when "3"
     puts "You have selected - save the list to students.csv"
+    puts "Enter the filename"
+    enterfilename = gets.chomp
+    if enterfilename == "students.csv"
     save_students
+    end
   when "4"
     puts "You have selected - load the list from students.csv"
-    load_students
+     puts "Enter the filename"
+     enterfilename = gets.chomp
+     if enterfilename == "students.csv"
+     load_students
+     end
   else
     puts "I don't know what you meant, try again"
   end
